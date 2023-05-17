@@ -1,0 +1,134 @@
+.hero {
+  padding-top: 80px;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+  }
+
+  &__title {
+    margin-bottom: 74px;
+
+    font-family: 'Playfair Display';
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 125%;
+
+    color: #202336;
+  }
+}
+
+.picker {
+  &__title {
+    margin-bottom: 70px;
+    position: relative;
+
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.2;
+    color: #202336;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 40px;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: #202336;
+      border-radius: 4px;
+    }
+  }
+
+  &__fields-wrapper {
+    margin-bottom: 47px;
+    max-width: 471px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  &__fields {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 0.8px solid #afb0b9;
+    transition: border-color 0.1s ease-in-out;
+    &:hover {
+      border-color: mediumslateblue;
+    }
+    border-radius: 6px;
+    width: 220px;
+    height: 52px;
+    padding-left: 30px;
+    &::after {
+      content: '';
+      background: url('../img/icons/arrow-bottom.svg') no-repeat center/cover;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 6px;
+    }
+
+    &.active {
+      border-color: mediumslateblue;
+      .picker__menu {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__select {
+    font-family: 'Inter';
+    font-size: 15px;
+    color: #4a4c53;
+  }
+
+  &__menu {
+    opacity: 0;
+    visibility: hidden;
+    transition: 150ms ease-in-out all;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: absolute;
+    z-index: 2;
+    background-color: #292828;
+    top: 55px;
+    border-radius: 6px;
+    left: 0;
+    width: 100%;
+  }
+
+  &__menu-item {
+    background-color: #222;
+    border: 1px solid #222;
+    &:hover {
+      background-color: moccasin;
+      color: #222;
+    }
+    padding: 10px 10px;
+    color: #fff;
+    &:first-child {
+      border-radius: 5px 5px 0 0;
+    }
+    &:last-child {
+      border-radius: 0 0 5px 5px;
+    }
+  }
+
+  &__button {
+    font-weight: 500;
+    font-size: 15px;
+    padding: 15px 40px;
+    border: 1px solid #fb8f1d;
+    border-radius: 8px;
+    background: #fb8f1d;
+    color: #fff;
+  }
+}

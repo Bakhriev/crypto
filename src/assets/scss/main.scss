@@ -4,15 +4,15 @@
 // Base
 @import './base/reset';
 
-// UI
-@import '../ui/buttons/epic-btn/epic-btn.scss';
-@import '../ui/buttons/shiny-btn/shiny-btn.scss';
-
 // Sass-utils
 @import './sass-utils/center';
 @import './sass-utils/disable-mob-hover';
 @import './sass-utils/global';
 @import './sass-utils/variables';
+
+// UI
+@import '../ui/buttons/epic-btn/epic-btn.scss';
+@import '../ui/buttons/shiny-btn/shiny-btn.scss';
 
 //Components
 @import './components/overlay';
@@ -22,6 +22,7 @@
 // Layouts
 @import './layout/header';
 @import './layout/footer';
+@import './layout/hero';
 
 // Pages
 @import './pages/home';

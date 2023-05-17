@@ -382,6 +382,7 @@ button {
     cursor: pointer;
     width: -moz-max-content;
     width: max-content;
+    background: transparent;
 }
 
 h1,
@@ -399,106 +400,8 @@ h6 {
     outline: 2px solid #0055ff;
 }
 
-.epic-btn {
-    position: relative;
-    padding: 25px 80px;
-    color: #fff;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: #206592;
-}
-
-.epic-btn > span {
-    display: block;
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-}
-
-.epic-btn > span:last-child {
-    transform: translateY(40px);
-    opacity: 0;
-}
-
-.epic-btn::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    transition: transform 0.3s ease-in-out;
-    background-color: #2422c9;
-    transform: translateY(60px);
-}
-
-.epic-btn:hover::after {
-    transform: translateY(0);
-    border-radius: 0;
-}
-
-.epic-btn:hover > span:first-child {
-    transform: translateY(-40px);
-    opacity: 0;
-}
-
-.epic-btn:hover > span:last-child {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.shiny-btn {
-    position: relative;
-    margin: 0 40px;
-    padding: 20px 50px;
-    font-size: 23px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 5px;
-    border: 1px solid transparent;
-    background-color: #0d0d0d;
-    overflow: hidden;
-    transition: 0.6s;
-    color: #206592;
-    border-color: #206592;
-}
-
-.shiny-btn::before, .shiny-btn::after {
-    position: absolute;
-    content: "";
-    left: 0;
-    top: 0;
-    height: 100%;
-    filter: blur(30px);
-    opacity: 0.4;
-    transition: 0.6s;
-}
-
-.shiny-btn::before {
-    width: 60px;
-    background: rgba(255, 255, 255, 0.6);
-    transform: translateX(-130px) skewX(-45deg);
-}
-
-.shiny-btn::after {
-    width: 30px;
-    background: rgba(255, 255, 255, 0.6);
-    transform: translateX(-130px) skewX(-45deg);
-}
-
-.shiny-btn:hover {
-    color: #f2f2f2;
-    background: #206592;
-}
-
-.shiny-btn:hover::before, .shiny-btn:hover::after {
-    opacity: 0.6;
-    transform: translateX(320px) skewX(-45deg);
-}
-
 body {
-    font-family: serif;
+    font-family: Inter, san-serif;
     font-weight: 400;
     font-size: 16px;
 }
@@ -511,7 +414,7 @@ body {
 
 .container {
     margin: 0 auto;
-    max-width: 1430px;
+    max-width: 1270px;
     padding: 0 15px;
 }
 
@@ -537,6 +440,102 @@ body {
 
 .btn:active {
     outline-offset: 1px;
+}
+
+.epic-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.epic-btn > span {
+    display: block;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.epic-btn > span:last-child {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    color: #fff;
+}
+
+.epic-btn > span:last-child {
+    transform: translateY(40px);
+    opacity: 0;
+}
+
+.epic-btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transition: transform 0.3s ease-in-out;
+    background-color: #fb8f1d;
+    transform: translateY(60px);
+}
+
+.epic-btn:active {
+    scale: 0.97;
+}
+
+@media (any-hover: hover) {
+    .epic-btn:hover::after {
+        transform: translateY(0);
+        border-radius: 0;
+    }
+}
+
+@media (any-hover: hover) {
+    .epic-btn:hover > span:first-child {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+
+    .epic-btn:hover > span:last-child {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.shiny-btn {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.6s;
+}
+
+.shiny-btn::before, .shiny-btn::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    height: 100%;
+    filter: blur(30px);
+    opacity: 0.4;
+    transition: 0.6s;
+}
+
+.shiny-btn::before {
+    width: 60px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateX(-130px) skewX(-45deg);
+}
+
+.shiny-btn::after {
+    width: 30px;
+    background: rgba(255, 255, 255, 0.6);
+    transform: translateX(-130px) skewX(-45deg);
+}
+
+@media (any-hover: hover) {
+    .shiny-btn:hover::before, .shiny-btn:hover::after {
+        opacity: 0.6;
+        transform: translateX(320px) skewX(-45deg);
+    }
+}
+
+.shiny-btn:active {
+    scale: 0.97;
 }
 
 .overlay {
@@ -629,14 +628,15 @@ body {
     padding: 20px 0;
 }
 
+.header__container {
+    justify-content: space-between;
+}
+
 @media screen and (max-width: 768px) {
     .header__container {
         justify-content: space-between;
+        width: 100%;
     }
-}
-
-.header__navigation {
-    width: 100%;
 }
 
 .header__navigation.active {
@@ -664,8 +664,8 @@ body {
 }
 
 .header__buttons {
-    margin-left: auto;
-    gap: 20px;
+    margin-left: 34px;
+    gap: 18px;
 }
 
 @media screen and (max-width: 768px) {
@@ -675,8 +675,27 @@ body {
     }
 }
 
+.header__buttons .login-btn,
+.header__buttons .register-btn {
+    font-weight: 500;
+    font-size: 15px;
+    mix-blend-mode: normal;
+    padding: 15px 40px;
+    border: 1px solid #fb8f1d;
+    border-radius: 8px;
+}
+
+.header__buttons .login-btn {
+    color: #fb8f1d;
+}
+
+.header__buttons .register-btn {
+    color: #fff;
+    background: #fb8f1d;
+}
+
 .nav__list {
-    gap: 50px;
+    gap: 35px;
 }
 
 @media screen and (max-width: 768px) {
@@ -687,8 +706,14 @@ body {
 }
 
 .nav__list-item-link {
-    color: #222;
+    font-weight: 500;
+    line-height: 19px;
+    color: #b8becd;
     position: relative;
+}
+
+.nav__list-item-link.active {
+    color: #202336;
 }
 
 @media (any-hover: hover) {
@@ -710,4 +735,139 @@ body {
     transform: scaleX(0);
     transition: transform 200ms ease-in-out;
     transform-origin: right bottom;
+}
+
+.hero {
+    padding-top: 80px;
+}
+
+.hero__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero__title {
+    margin-bottom: 74px;
+    font-family: "Playfair Display";
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 125%;
+    color: #202336;
+}
+
+.picker__title {
+    margin-bottom: 70px;
+    position: relative;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.2;
+    color: #202336;
+}
+
+.picker__title::before {
+    content: "";
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 32px;
+    height: 2px;
+    background: #202336;
+    border-radius: 4px;
+}
+
+.picker__fields-wrapper {
+    margin-bottom: 47px;
+    max-width: 471px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.picker__fields {
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 0.8px solid #afb0b9;
+    transition: border-color 0.1s ease-in-out;
+    border-radius: 6px;
+    width: 220px;
+    height: 52px;
+    padding-left: 30px;
+}
+
+.picker__fields:hover {
+    border-color: mediumslateblue;
+}
+
+.picker__fields::after {
+    content: "";
+    background: url("../img/icons/arrow-bottom.svg") no-repeat center/cover;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 6px;
+}
+
+.picker__fields.active {
+    border-color: mediumslateblue;
+}
+
+.picker__fields.active .picker__menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.picker__select {
+    font-family: "Inter";
+    font-size: 15px;
+    color: #4a4c53;
+}
+
+.picker__menu {
+    opacity: 0;
+    visibility: hidden;
+    transition: 150ms ease-in-out all;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: absolute;
+    z-index: 2;
+    background-color: #292828;
+    top: 55px;
+    border-radius: 6px;
+    left: 0;
+    width: 100%;
+}
+
+.picker__menu-item {
+    background-color: #222;
+    border: 1px solid #222;
+    padding: 10px 10px;
+    color: #fff;
+}
+
+.picker__menu-item:hover {
+    background-color: moccasin;
+    color: #222;
+}
+
+.picker__menu-item:first-child {
+    border-radius: 5px 5px 0 0;
+}
+
+.picker__menu-item:last-child {
+    border-radius: 0 0 5px 5px;
+}
+
+.picker__button {
+    font-weight: 500;
+    font-size: 15px;
+    padding: 15px 40px;
+    border: 1px solid #fb8f1d;
+    border-radius: 8px;
+    background: #fb8f1d;
+    color: #fff;
 }
